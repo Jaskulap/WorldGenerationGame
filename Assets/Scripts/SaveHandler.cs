@@ -96,8 +96,8 @@ public class SaveHandler : MonoBehaviour
         List<float> biomeData = FileHandler.ReadListFromJSON<float>(filename + "/" + filename + "BiomeData.json");
         worldGeneration.biomeWrappedList = new FloatListWrapper(biomeData);
         worldGeneration.biomeList = biomeData;
-        worldGeneration.mapWidth = (int)Mathf.Sqrt(biomeData.Count);
-        tilemapBiomesController.tilemapChars = new char[worldGeneration.mapWidth, worldGeneration.mapWidth];
+        worldGeneration.MapWidth = (int)Mathf.Sqrt(biomeData.Count);
+        tilemapBiomesController.tilemapChars = new char[worldGeneration.MapWidth, worldGeneration.MapWidth];
 
         foreach (var mapData in data)
         {

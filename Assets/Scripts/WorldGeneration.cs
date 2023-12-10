@@ -19,17 +19,19 @@ public class WorldGeneration : MonoBehaviour
     public TilemapBiomesController tilemapBiomesController;
     public TilemapResourcesController tilemapResourcesController;
 
-   
+    [SerializeField]
+    private Swamp swamp;
+
     public GameObject borderSquare;
 
     public Tile swampTile;
-    public Tile swampBorderTile;
+
 
     public Tile waterStickTile;
     public Tile stoneTile;
     public Tile treeTile;
 
-  
+
     public Slider islandRadiusSlider;
     public Slider landformSlider;
     private float landformScale = 1;
@@ -38,8 +40,8 @@ public class WorldGeneration : MonoBehaviour
     public TMP_InputField seedStringInputField;
     private string seedString = "";
 
-  
-    public int mapWidth = 100;
+
+    private int mapWidth = 100;
     public int islandRadius = 40;
     public int seed = 0;
     private Vector2Int islandCenter;
@@ -52,8 +54,9 @@ public class WorldGeneration : MonoBehaviour
 
     public TilesManager tileManager;
     public UIManager uiManager;
-  
-    private bool[,] tilemapSwampChecked;
+
+    public int MapWidth { get => mapWidth; set => mapWidth = value; }
+
     void Start()
     {
         random = new Random();
@@ -78,79 +81,17 @@ public class WorldGeneration : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-           
+
 
         }
         else
                if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            CreateSwampBorders();
+            swamp.CreateSwampBorders();
         }
     }
 
-    public void CreateSwampBorders()
-    {
-        tilemapSwampChecked = new bool[mapWidth, mapWidth];
-        for (int x = 0; x < mapWidth; x++)
-        {
-            for (int y = 0; y < mapWidth; y++)
-            {
-                tilemapSwampChecked[x, y] = false;
-            }
-        }
-        for (int x = 0; x < mapWidth; x++)
-        {
-            for (int y = 0; y < mapWidth; y++)
-            {
-                if (tilemapBiomesController.tilemapChars[x, y] == BiomeType.SWAMP && tilemapSwampChecked[x, y] == false)
-                {
-                    //Debug.Log("Start Swamp Check at: " + x + " " + y);
-                    FloodFillSwamp(x, y);
 
-                }
-            }
-        }
-
-    }
-    struct TwoVec2
-    {
-        public Vector2Int zapis;
-        public Vector2Int aktualny;
-    }
-    public void FloodFillSwamp(int startX, int startY)
-    {
-        Queue<TwoVec2> queue = new Queue<TwoVec2>();
-        queue.Enqueue(new TwoVec2() { zapis = new Vector2Int(startX, startY), aktualny = new Vector2Int(startX, startY) });
-
-        while (queue.Count > 0)
-        {
-            TwoVec2 positions = queue.Dequeue();
-            Vector2Int position = positions.aktualny;
-            Vector2Int zapis = positions.zapis;
-            int x = position.x;
-            int y = position.y;
-
-
-            if (x < 0 || x >= mapWidth || y < 0 || y >= mapWidth || tilemapSwampChecked[x, y] == true)
-            {
-                continue; // Wyjd�, je�li pozycja jest poza granicami
-            }
-            if (tilemapBiomesController.tilemapChars[x, y] != BiomeType.SWAMP)
-            {
-                tilemapBiomes.SetTile(new Vector3Int(zapis.x, zapis.y, 0), swampBorderTile);
-                tilemapBiomesController.tilemapChars[zapis.x, zapis.y] = BiomeType.SWAMP;
-                tilemapSwampChecked[zapis.x, zapis.y] = true;
-                continue;
-            }
-            tilemapSwampChecked[x, y] = true;
-
-            // Dodaj s�siednie pola do kolejki
-            queue.Enqueue(new TwoVec2() { zapis = new Vector2Int(x, y), aktualny = new Vector2Int(x + 1, y) }); // Prawo
-            queue.Enqueue(new TwoVec2() { zapis = new Vector2Int(x, y), aktualny = new Vector2Int(x - 1, y) }); // Lewo
-            queue.Enqueue(new TwoVec2() { zapis = new Vector2Int(x, y), aktualny = new Vector2Int(x, y + 1) }); // G�ra
-            queue.Enqueue(new TwoVec2() { zapis = new Vector2Int(x, y), aktualny = new Vector2Int(x, y - 1) }); // D�
-        }
-    }
 
     public int GenerateSeedFromText(string text)//0-1000
     {
@@ -171,7 +112,7 @@ public class WorldGeneration : MonoBehaviour
         tilemapBiomes.ClearAllTiles();
         tilemapResources.ClearAllTiles();
         biomeList.Clear();
-        tilemapBiomesController.tilemapChars = new char[mapWidth, mapWidth];
+        tilemapBiomesController.tilemapChars = new char[MapWidth, MapWidth];
         GenerateWorld(empty: true);
     }
 
@@ -185,7 +126,7 @@ public class WorldGeneration : MonoBehaviour
         {
             seed = GenerateSeedFromText(seedString);
         }
-     
+
         biomeList.Clear();
         tilemapBiomes.ClearAllTiles();
         tilemapResources.ClearAllTiles();
@@ -193,16 +134,16 @@ public class WorldGeneration : MonoBehaviour
 
         // Rozpoczęcie pomiaru czasu
         stopwatch.Start();
-        mapWidth = (int)(islandRadius * 2.5);
-        tilemapBiomesController.tilemapChars = new char[mapWidth, mapWidth];
+        MapWidth = (int)(islandRadius * 2.5);
+        tilemapBiomesController.tilemapChars = new char[MapWidth, MapWidth];
 
-        islandCenter = new Vector2Int(mapWidth / 2, mapWidth / 2);
+        islandCenter = new Vector2Int(MapWidth / 2, MapWidth / 2);
         Camera.main.transform.position = new Vector3(islandCenter.x, islandCenter.y, -10);
         if (empty)
         {
-            for (int x = 0; x < mapWidth; x++)
+            for (int x = 0; x < MapWidth; x++)
             {
-                for (int y = 0; y < mapWidth; y++)
+                for (int y = 0; y < MapWidth; y++)
                 {
                     tilemapBiomes.SetTile(new Vector3Int(x, y, 0), tileManager.tileList[0].tile);
                     tilemapBiomesController.tilemapChars[x, y] = BiomeType.WATER;
@@ -213,9 +154,9 @@ public class WorldGeneration : MonoBehaviour
         }
         else
         {
-            for (int x = 0; x < mapWidth; x++)
+            for (int x = 0; x < MapWidth; x++)
             {
-                for (int y = 0; y < mapWidth; y++)
+                for (int y = 0; y < MapWidth; y++)
                 {
                     Vector3Int cellPosition = new Vector3Int(x, y, 0);
                     Vector2Int positionFromCenter = new Vector2Int(x - islandCenter.x, y - islandCenter.y);
@@ -277,7 +218,7 @@ public class WorldGeneration : MonoBehaviour
         long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
 
         Debug.Log("Czas GenerateWorld: " + elapsedMilliseconds + " ms");
-        CreateSwampBorders();
+        swamp.CreateSwampBorders();
         tilemapResourcesController.Initialize();
         tilemapBiomesController.Initialize();
         uiManager.CloseAllPopUp();
