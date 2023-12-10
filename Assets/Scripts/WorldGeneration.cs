@@ -102,7 +102,7 @@ public class WorldGeneration : MonoBehaviour
         {
             for (int y = 0; y < mapWidth; y++)
             {
-                if (tilemapBiomesController.tilemapChars[x, y] == 'b' && tilemapSwampChecked[x, y] == false)
+                if (tilemapBiomesController.tilemapChars[x, y] == BiomeType.SWAMP && tilemapSwampChecked[x, y] == false)
                 {
                     //Debug.Log("Start Swamp Check at: " + x + " " + y);
                     FloodFillSwamp(x, y);
@@ -135,10 +135,10 @@ public class WorldGeneration : MonoBehaviour
             {
                 continue; // Wyjd�, je�li pozycja jest poza granicami
             }
-            if (tilemapBiomesController.tilemapChars[x, y] != 'b')
+            if (tilemapBiomesController.tilemapChars[x, y] != BiomeType.SWAMP)
             {
                 tilemapBiomes.SetTile(new Vector3Int(zapis.x, zapis.y, 0), swampBorderTile);
-                tilemapBiomesController.tilemapChars[zapis.x, zapis.y] = 'b';
+                tilemapBiomesController.tilemapChars[zapis.x, zapis.y] = BiomeType.SWAMP;
                 tilemapSwampChecked[zapis.x, zapis.y] = true;
                 continue;
             }
@@ -205,7 +205,7 @@ public class WorldGeneration : MonoBehaviour
                 for (int y = 0; y < mapWidth; y++)
                 {
                     tilemapBiomes.SetTile(new Vector3Int(x, y, 0), tileManager.tileList[0].tile);
-                    tilemapBiomesController.tilemapChars[x, y] = 'w';
+                    tilemapBiomesController.tilemapChars[x, y] = BiomeType.WATER;
                     biomeList.Add(0f);
 
                 }
@@ -250,7 +250,7 @@ public class WorldGeneration : MonoBehaviour
                     {
                         if (biome > 0.25 && biome < 0.40 && swampNoise > 0.62)
                         {
-                            tilemapBiomesController.tilemapChars[x, y] = 'b';
+                            tilemapBiomesController.tilemapChars[x, y] = BiomeType.SWAMP;
                             tilemapBiomes.SetTile(cellPosition, swampTile);
                         }
                         if (UnityEngine.Random.value <= treeNoise)

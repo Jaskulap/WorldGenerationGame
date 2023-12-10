@@ -220,7 +220,7 @@ public class TilemapResourcesController : MonoBehaviour
             treeCount++;
         }
         else
-        if (resource == 's')
+        if (resource == BiomeType.SAND)
         {
             tilemap.SetTile(cellPosition, stoneTile);
             stoneCount++;
