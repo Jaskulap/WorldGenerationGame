@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{AD0E11E2-6B82-6127-71A4-BB5808557A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qriva.MonoBehaviourTree.Runtime", "Qriva.MonoBehaviourTree.Runtime.csproj", "{F50407D6-5708-9856-F358-4D469833B1ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qriva.MonoBehaviourTree.Editor", "Qriva.MonoBehaviourTree.Editor.csproj", "{61CC0B6E-1701-468B-9F04-A2A7FA27D82E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD0E11E2-6B82-6127-71A4-BB5808557A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0E11E2-6B82-6127-71A4-BB5808557A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0E11E2-6B82-6127-71A4-BB5808557A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0E11E2-6B82-6127-71A4-BB5808557A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50407D6-5708-9856-F358-4D469833B1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50407D6-5708-9856-F358-4D469833B1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50407D6-5708-9856-F358-4D469833B1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50407D6-5708-9856-F358-4D469833B1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61CC0B6E-1701-468B-9F04-A2A7FA27D82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61CC0B6E-1701-468B-9F04-A2A7FA27D82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61CC0B6E-1701-468B-9F04-A2A7FA27D82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61CC0B6E-1701-468B-9F04-A2A7FA27D82E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
