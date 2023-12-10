@@ -3261,7 +3261,7 @@ MonoBehaviour:
   savePopUp: {fileID: 1822804652}
   loadPopUp: {fileID: 1624776956}
   contentObject: {fileID: 1320418645}
-  buttonPrefab: {fileID: 9011621512689056026, guid: f85a065927b6d8645b30cfbf21ead908, type: 3}
+  buttonPrefab: {fileID: 9011621512689056026, guid: 1785c88d6bb596441980689a1151ace3, type: 3}
 --- !u!4 &976698891
 Transform:
   m_ObjectHideFlags: 0
@@ -5464,7 +5464,7 @@ MonoBehaviour:
   biomeWrappedList:
     floatList: []
   tileManager: {fileID: 2131164251}
-  uiManager: {fileID: 976698890}
+  uiManager: {fileID: 0}
 --- !u!1 &1804138761
 GameObject:
   m_ObjectHideFlags: 0
