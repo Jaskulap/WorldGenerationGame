@@ -109,6 +109,11 @@ public class TilemapBiomesController : MonoBehaviour
         return tilemapIslandNumber[x, y];
     }
 
+    public bool CompareIslands(Vector3 cords1, Vector3 cords2)
+    {
+        return getIslandNrOnCords(cords1) == getIslandNrOnCords(cords2);
+    }
+
     private void Update() // ???????? co to robi
     {
         if (categorized)
