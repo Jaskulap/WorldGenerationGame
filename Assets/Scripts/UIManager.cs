@@ -1,6 +1,7 @@
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
 public class UIManager : MonoBehaviour
@@ -12,11 +13,20 @@ public class UIManager : MonoBehaviour
     public GameObject contentObject;
     public Button buttonPrefab;
     private GameObject activePopUp;
+    [SerializeField]
+    WorldGeneration worldGeneration;
+
+    public Slider islandRadiusSlider;
+    public Slider landformSlider;
+    public Slider resourceRateSlider;
+
+    public TMP_InputField seedStringInputField;
 
     public void Start()
     {
         CloseAllPopUp();
         RestartLoadOptions();
+        islandRadiusSlider.value = worldGeneration.IslandRadius;
     }
 
     public void CloseAllPopUp()
@@ -83,6 +93,20 @@ public class UIManager : MonoBehaviour
 
         }
         loadPopUp.SetActive(false);
+    }
+
+    public void OnSeedInputChange()
+    {
+
+        worldGeneration.SeedString = seedStringInputField.text;
+    }
+
+    public void OnGenerateSlidersValueChanged()
+    {
+        worldGeneration.IslandRadius = (int)islandRadiusSlider.value;
+        worldGeneration.LandformScale = (float)landformSlider.value;
+        worldGeneration.ResourceRate = (float)resourceRateSlider.value;
+
     }
 
 }
