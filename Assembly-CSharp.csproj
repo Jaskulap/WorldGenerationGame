@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\SeedFromText.cs" />
     <Compile Include="Assets\Scripts\InputSystem.cs" />
     <Compile Include="Assets\Scripts\ResourceType.cs" />
+    <Compile Include="Assets\Scripts\FloatListWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

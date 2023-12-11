@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -157,15 +156,5 @@ public class WorldGeneration : MonoBehaviour
     public Vector2Int GetIslandCenter() { return islandCenter; }
     public Swamp GetSwamp() { return swamp; }
 
-}
-
-[Serializable]
-public class FloatListWrapper
-{
-    public List<float> floatList;
-    public FloatListWrapper(List<float> floatList)
-    {
-        this.floatList = floatList;
-    }
 }
 
