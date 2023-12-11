@@ -44,6 +44,7 @@ public class TilemapBiomesController : MonoBehaviour
         UpdateMovementCosts();
 
     }
+
     public void Initialize()
     {
         gridSize = tilemapChars.GetLength(0);
@@ -141,7 +142,7 @@ public class TilemapBiomesController : MonoBehaviour
     public bool IsCellValid(Vector3Int cell)
     {
         char tile = tilemapChars[cell.x, cell.y];
-        return cell.x >= 0 && cell.x < gridSize && cell.y >= 0 && cell.y < gridSize && tile != BiomeType.WATER && tile != BiomeType.MOUNTAIN;
+        return IsCellInBorders(cell) && tile != BiomeType.WATER && tile != BiomeType.MOUNTAIN;
     }
 
     public bool IsCellInBorders(Vector3Int cell)

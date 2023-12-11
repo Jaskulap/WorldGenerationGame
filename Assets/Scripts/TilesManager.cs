@@ -49,12 +49,8 @@ public class TilesManager : MonoBehaviour
         Color currentColor = new Color(startColor, startColor, startColor);
         for (int i = 0; i < howMany; i++)
         {
-            Tile newTile = new Tile(); // Tworzenie nowego obiektu Tile
-
-            // Przepisanie wartoœci z baseTile do newTile
-            newTile.sprite = baseTile.sprite;/*
-            newTile.colliderType = baseTile.colliderType;
-            newTile.transform = baseTile.transform;*/
+            Tile newTile = new Tile(); 
+            newTile.sprite = baseTile.sprite;
 
             newTile.name = baseTile.name + i;
             newTile.color = currentColor;
