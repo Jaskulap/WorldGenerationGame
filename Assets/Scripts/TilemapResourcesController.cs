@@ -49,16 +49,18 @@ public class TilemapResourcesController : MonoBehaviour
             case ResourceType.TREE:
                 if(treeCount - occupiedResourcesTree.Count <= 0)
                     return false;
+                break;
             case ResourceType.STONE:
                 if(stoneCount - occupiedResourcesStone.Count <= 0)
                     return false;
+                break;
         }
         return true;
     }
 
     public Vector3? GetNearestResourceCords(Vector3 startingCords, string resourceName)
     {
-        if (!IsResourceAvaliable(resourceName)
+        if (!IsResourceAvaliable(resourceName))
         {
             return null;
         }
