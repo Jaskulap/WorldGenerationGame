@@ -42,28 +42,18 @@ public class TilemapResourcesController : MonoBehaviour
         }
     }
 
-    void Start()
+    public Vector3? GetNearestResourceCords(Vector3 startingCords, string resourceName)
     {
-    }
-
-    void Update()
-    {
-    }
-
-    public Vector3? GetNearestResourceCords(Vector3 startingCords, string resourceName) // trzeba jeszcze dodac obsluge jak w ogole nie ma na mapie tego resourca
-    {
-        if (resourceName == "treeTile" && (treeCount - occupiedResourcesTree.Count <= 0))
+        if (resourceName == ResourceType.TREE && (treeCount - occupiedResourcesTree.Count <= 0))
         {
             return null;
         }
-        else if (resourceName == "stoneTile" && (treeCount - occupiedResourcesTree.Count <= 0))
+        else if (resourceName == ResourceType.STONE && (treeCount - occupiedResourcesTree.Count <= 0))
         {
             return null;
         }
 
         Vector3? nearestResourceCords = null;
-
-        //    Debug.Log("szukam " + resourceName);
 
         bool found = false;
         int iterations = 0;
@@ -74,14 +64,13 @@ public class TilemapResourcesController : MonoBehaviour
 
         int startingIslandNr = tilemapBiomesController.getIslandNrOnCords(startingCords);
 
-
         BoundsInt searchBounds = new BoundsInt(
             startingCellPosition - new Vector3Int(Mathf.FloorToInt(searchRadius), Mathf.FloorToInt(searchRadius), 0),
             new Vector3Int(Mathf.CeilToInt(searchRadius * 2), Mathf.CeilToInt(searchRadius * 2), 1)
         );
 
-        while (!found && iterations < 5) // trzeba bedzie dostosowac do najwiekszej mapy; albo zrobic zmienna zalezna od promienia mapy;; bo bylo 3 i dla map powyzej polowy suwaka zostawial
-        {//czy musi by� 6 iteracji - nie wystarcz� 4 lub 5??
+        while (!found && iterations < 5)
+        {
             iterations++;
             foreach (Vector3Int cellPosition in searchBounds.allPositionsWithin) // szukanie w bounds
             {
@@ -101,9 +90,9 @@ public class TilemapResourcesController : MonoBehaviour
             }
             searchRadius *= 2;
             searchBounds = new BoundsInt(
-            startingCellPosition - new Vector3Int(Mathf.FloorToInt(searchRadius), Mathf.FloorToInt(searchRadius), 0),
-            new Vector3Int(Mathf.CeilToInt(searchRadius * 2), Mathf.CeilToInt(searchRadius * 2), 1)
-        );
+                startingCellPosition - new Vector3Int(Mathf.FloorToInt(searchRadius), Mathf.FloorToInt(searchRadius), 0),
+                new Vector3Int(Mathf.CeilToInt(searchRadius * 2), Mathf.CeilToInt(searchRadius * 2), 1)
+            );
         }
 
         if (!found)
@@ -111,24 +100,21 @@ public class TilemapResourcesController : MonoBehaviour
             return null;
         }
 
-        if (resourceName == "treeTile")
+        switch (resourceName)
         {
-            occupiedResourcesTree.Add(nearestResourceCords.Value);
-        }
-        else if (resourceName == "stoneTile")
-        {
-            occupiedResourcesStone.Add(nearestResourceCords.Value);
+            case ResourceType.TREE:
+                occupiedResourcesTree.Add(nearestResourceCords.Value);
+                break;
+            case ResourceType.STONE:
+                occupiedResourcesStone.Add(nearestResourceCords.Value);
+                break;
         }
 
         return nearestResourceCords;
     }
 
-
     public string GetResourceTypeOnCords(Vector3 cords)
     {
-
-
-
         Vector3Int cellPosition = tilemap.WorldToCell(cords);
         if (tilemap.GetTile(cellPosition) != null)
             return tilemap.GetTile(cellPosition).name;
@@ -136,38 +122,45 @@ public class TilemapResourcesController : MonoBehaviour
             return null;
     }
 
-    public void deleteResource(Vector3 cords) // to mozna przerobic zeby korzystalo z relase
+    public void DeleteResource(Vector3 cords)
     {
+        char resource = GetResourceTypeOnCords(cords);
+        LowerResourceCount(resource);
+        ReleaseOccupiedResource(cords);
+
         Vector3Int cellPosition = tilemap.WorldToCell(cords);
-
-        if (GetResourceTypeOnCords(cords) == "treeTile")
-        {
-            occupiedResourcesTree.Remove(cords);
-            treeCount--;
-
-        }
-        else if (GetResourceTypeOnCords(cords) == "stoneTile")
-        {
-            occupiedResourcesStone.Remove(cords);
-            stoneCount--;
-        }
-
         tilemap.SetTile(cellPosition, null);
+    }
+
+    public void LowerResourceCount(char resource)
+    {
+        switch (resource)
+        {
+            case ResourceType.TREE:
+                treeCount--;
+                break;
+            case ResourceType.STONE:
+                stoneCount--;
+                break;
+        }
     }
 
     public void ReleaseOccupiedResource(Vector3 cords)
     {
-        if (GetResourceTypeOnCords(cords) == "treeTile")
+        char resource = GetResourceTypeOnCords(cords);
+
+        switch (resource)
         {
-            occupiedResourcesTree.Remove(cords);
-        }
-        else if (GetResourceTypeOnCords(cords) == "stoneTile")
-        {
-            occupiedResourcesStone.Remove(cords);
+            case ResourceType.TREE:
+                occupiedResourcesTree.Remove(cords);
+                break;
+            case ResourceType.STONE:
+                occupiedResourcesStone.Remove(cords);
+                break;
         }
     }
 
-    public void deleteSpecificResource(Vector3Int cords, char type)
+    public void DeleteSpecificResource(Vector3Int cords, string type)
     {
         if (tilemap.GetTile(cords) == null)
         {
@@ -181,24 +174,16 @@ public class TilemapResourcesController : MonoBehaviour
         tilemap.SetTile(cellPosition, null);
 
         ReleaseOccupiedResource(cords);
-
-        if (type == 't')
-        {
-            treeCount--;
-        }
-        else if (type == 's')
-        {
-            stoneCount--;
-        }
+        LowerResourceCount(type);
     }
 
     private bool IsResourceOccupied(Vector3 cellPosition)
     {
-        if (GetResourceTypeOnCords(cellPosition) == "treeTile" && occupiedResourcesTree.Contains(cellPosition))
+        if (GetResourceTypeOnCords(cellPosition) == ResourceType.TREE && occupiedResourcesTree.Contains(cellPosition))
         {
             return true;
         }
-        else if (GetResourceTypeOnCords(cellPosition) == "stoneTile" && occupiedResourcesStone.Contains(cellPosition))
+        else if (GetResourceTypeOnCords(cellPosition) == ResourceType.STONE && occupiedResourcesStone.Contains(cellPosition))
         {
             return true;
         }
@@ -208,22 +193,21 @@ public class TilemapResourcesController : MonoBehaviour
     public bool IsCellEmpty(Vector3 cellPosition)
     {
         Vector3Int cell = tilemap.WorldToCell(cellPosition);
-
         return (tilemap.GetTile(cell) == null);
     }
 
     public void SetResourceTile(Vector3Int cellPosition, char resource)
     {
-        if (resource == 't')
+        switch (resource)
         {
-            tilemap.SetTile(cellPosition, treeTile);
-            treeCount++;
-        }
-        else
-        if (resource == BiomeType.SAND)
-        {
-            tilemap.SetTile(cellPosition, stoneTile);
-            stoneCount++;
+            case ResourceType.TREE:
+                tilemap.SetTile(cellPosition, treeTile);
+                treeCount++;
+                break;
+            case ResourceType.STONE:
+                tilemap.SetTile(cellPosition, stoneTile);
+                stoneCount++;
+                break;
         }
     }
 
