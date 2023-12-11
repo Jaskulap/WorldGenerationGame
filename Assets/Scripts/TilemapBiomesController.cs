@@ -102,7 +102,7 @@ public class TilemapBiomesController : MonoBehaviour
         }
     }
 
-    public int getIslandNrOnCords(Vector3 cellPosition)
+    public int GetIslandNrOnCords(Vector3 cellPosition)
     {
         int x = Mathf.RoundToInt(cellPosition.x);
         int y = Mathf.RoundToInt(cellPosition.y);
@@ -111,7 +111,7 @@ public class TilemapBiomesController : MonoBehaviour
 
     public bool CompareIslands(Vector3 cords1, Vector3 cords2)
     {
-        return getIslandNrOnCords(cords1) == getIslandNrOnCords(cords2);
+        return GetIslandNrOnCords(cords1) == GetIslandNrOnCords(cords2);
     }
 
     private void Update() // ???????? co to robi
@@ -127,7 +127,7 @@ public class TilemapBiomesController : MonoBehaviour
         }
     }
 
-    public char getTileOnCords(Vector3Int cellPosition)
+    public char GetTileOnCords(Vector3Int cellPosition)
     {
         return (tilemapChars[cellPosition.x, cellPosition.y]);
     }
@@ -163,7 +163,7 @@ public class TilemapBiomesController : MonoBehaviour
         return int.MaxValue;
     }
 
-    public float getSpeedModifierOnTile(char tile) 
+    public float GetSpeedModifierOnTile(char tile) 
     {
         if (tile == BiomeType.GRASS) return 1f;
         if (tile == BiomeType.SAND) return 0.5f;

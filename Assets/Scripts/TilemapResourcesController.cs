@@ -42,17 +42,27 @@ public class TilemapResourcesController : MonoBehaviour
         }
     }
 
+    public bool IsResourceAvaliable(string resource)
+    {
+        switch (resource)
+        {
+            case ResourceType.TREE:
+                if(treeCount - occupiedResourcesTree.Count <= 0)
+                    return false;
+            case ResourceType.STONE:
+                if(stoneCount - occupiedResourcesStone.Count <= 0)
+                    return false;
+        }
+        return true;
+    }
+
     public Vector3? GetNearestResourceCords(Vector3 startingCords, string resourceName)
     {
-        if (resourceName == ResourceType.TREE && (treeCount - occupiedResourcesTree.Count <= 0))
+        if (!IsResourceAvaliable(resourceName)
         {
             return null;
         }
-        else if (resourceName == ResourceType.STONE && (treeCount - occupiedResourcesTree.Count <= 0))
-        {
-            return null;
-        }
-
+       
         Vector3? nearestResourceCords = null;
 
         bool found = false;
