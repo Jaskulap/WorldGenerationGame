@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Swamp.cs" />
     <Compile Include="Assets\Scripts\SeedFromText.cs" />
     <Compile Include="Assets\Scripts\InputSystem.cs" />
+    <Compile Include="Assets\Scripts\ResourceType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
