@@ -23,23 +23,23 @@ public class WorldGenerationConditionsTests
     [Test]
     public void IsGrassBiome_ShouldReturnTrueInRange()
     {
-        // Arrange
+
         float biome = 0.3f;
 
-        // Act
+
         bool result = worldGenerationConditions.IsGrassBiome(biome);
 
-        // Assert
+
         Assert.IsTrue(result);
     }
 
     [Test]
     public void IsGrassBiome_ShouldReturnFalseOutsideRange()
     {
-        // Arrange
+
         float[] outsideRangeBiomes = { 0.1f, 0.2f, 0.51f, 0.6f };
 
-        // Act & Assert
+
         foreach (float biome in outsideRangeBiomes)
         {
             Assert.IsFalse(worldGenerationConditions.IsGrassBiome(biome));
@@ -49,25 +49,24 @@ public class WorldGenerationConditionsTests
     [Test]
     public void IsSwampBiome_ShouldReturnTrueInRange()
     {
-        // Arrange
+
         float biome = 0.35f;
         float swampNoise = 0.7f;
 
-        // Act
+
         bool result = worldGenerationConditions.IsSwampBiome(biome, swampNoise);
 
-        // Assert
         Assert.IsTrue(result);
     }
 
     [Test]
     public void IsSwampBiome_ShouldReturnFalseOutsideRange()
     {
-        // Arrange
+
         float[] outsideRangeBiomes = { 0.1f, 0.2f, 0.45f, 0.6f };
         float[] outsideRangeSwampNoises = { 0.5f, 0.61f, 0.2f, 0.69f };
 
-        // Act & Assert
+
         for (int i = 0; i < outsideRangeBiomes.Length; i++)
         {
             Assert.IsFalse(worldGenerationConditions.IsSwampBiome(outsideRangeBiomes[i], outsideRangeSwampNoises[i]));

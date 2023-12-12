@@ -7,31 +7,25 @@ using UnityEngine.Tilemaps;
 
 public class TilesManagerTests
 {
-
-
     private TilesManager tilesManager;
     private GameObject tilesManagerObject;
 
     [SetUp]
     public void SetUp()
     {
-
+        // Arrange: Create a new GameObject and add TilesManager component
         tilesManagerObject = new GameObject("TilesManagerTestObject");
         tilesManager = tilesManagerObject.AddComponent<TilesManager>();
-
-
     }
 
     [UnityTest]
     public IEnumerator TilesManager_PopulateTileList()
     {
-
-
-        // Act
+        // Act: Wait for 1 second (example) to simulate asynchronous operation
         yield return new WaitForSeconds(1.0f);
 
+        // Assert: Check if the tilesManager has populated tile lists
         Assert.NotNull(tilesManager.baseGrassTile);
-        // Assert
         Assert.IsNotNull(tilesManager.tileList);
         Assert.IsNotNull(tilesManager.tileListSpecial);
 
@@ -45,8 +39,8 @@ public class TilesManagerTests
         // Example: Assert that the tileListSpecial contains expected tiles
         Assert.AreEqual(1, tilesManager.tileListSpecial.Count); // Adjust the expected count based on your actual data
         Assert.AreEqual(BiomeType.SWAMP, tilesManager.tileListSpecial[0].biome);
-
     }
+
     [Test]
     public void TilesManager_CreateTiles()
     {
@@ -54,15 +48,16 @@ public class TilesManagerTests
         TilesManager tilesManager = new TilesManager();
         List<TilesManager.Four> tileList = new List<TilesManager.Four>();
 
-        // Act
+        // Act: Create tiles and populate the tileList
         tilesManager.CreateTiles(tileList, new Tile(), 4, 0.1f, 0.5f, 'g', true, false);
 
-        // Assert
+        // Assert: Check if the tileList is populated with the created tiles
         Assert.IsNotNull(tileList);
         Assert.AreEqual(4, tileList.Count);
 
         foreach (var tileInfo in tileList)
         {
+            // Assert: Check each created tile in the tileList
             Assert.IsNotNull(tileInfo.tile);
             Assert.AreEqual('g', tileInfo.biome);
             // Add additional assertions based on your implementation
