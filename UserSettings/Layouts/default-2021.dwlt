@@ -15,67 +15,16 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 42.666668
-    width: 1706.6667
-    height: 976
+    y: 43.2
+    width: 1536
+    height: 772.8
   m_ShowMode: 4
-  m_Title: Game
-  m_RootView: {fileID: 4}
+  m_Title: Test Runner
+  m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 836.6667
-    y: 0
-    width: 557.99994
-    height: 291.3333
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 20}
-  m_Panes:
-  - {fileID: 20}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &3
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 12}
-  - {fileID: 2}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 634.6667
-    width: 1394.6666
-    height: 291.3333
-  m_MinSize: {x: 200, y: 100}
-  m_MaxSize: {x: 16192, y: 8096}
-  vertical: 0
-  controlID: 51
---- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,22 +37,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+  - {fileID: 3}
   - {fileID: 5}
-  - {fileID: 7}
-  - {fileID: 6}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6666
-    height: 976
+    width: 1536
+    height: 772.8
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &5
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6666
+    width: 1536
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &6
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,11 +90,61 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 956
-    width: 1706.6666
+    y: 752.8
+    width: 1536
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 6}
+  - {fileID: 13}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1536
+    height: 722.8
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 3265
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 7}
+  - {fileID: 10}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1120
+    height: 722.8
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 3266
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,68 +159,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 8}
-  - {fileID: 13}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 1706.6666
-    height: 926
-  m_MinSize: {x: 300, y: 200}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 109
---- !u!114 &8
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
   - {fileID: 9}
-  - {fileID: 3}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1394.6666
-    height: 926
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 16192, y: 16192}
-  vertical: 1
-  controlID: 86
---- !u!114 &9
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 10}
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1394.6666
-    height: 634.6667
+    width: 1120
+    height: 396.8
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 87
---- !u!114 &10
+  controlID: 3267
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,18 +187,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 406.66666
-    height: 634.6667
+    width: 272
+    height: 396.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 15}
-  - {fileID: 16}
   - {fileID: 17}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 2
---- !u!114 &11
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,19 +212,44 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 406.66666
+    x: 272
     y: 0
-    width: 988
-    height: 634.6667
+    width: 848
+    height: 396.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 14}
+  - {fileID: 19}
+  - {fileID: 16}
   m_Selected: 1
   m_LastSelected: 0
---- !u!114 &12
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 11}
+  - {fileID: 12}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 396.8
+    width: 1120
+    height: 326
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 3231
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,16 +266,67 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 836.6667
-    height: 291.3333
+    width: 687.2
+    height: 326
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 19}
+  - {fileID: 20}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ConsoleWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 687.2
+    y: 0
+    width: 432.8
+    height: 326
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 21}
+  m_Panes:
+  - {fileID: 21}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 14}
+  - {fileID: 15}
+  m_Position:
+    serializedVersion: 2
+    x: 1120
+    y: 0
+    width: 416
+    height: 722.8
+  m_MinSize: {x: 100, y: 200}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 3358
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,18 +341,44 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1394.6666
+    x: 0
     y: 0
-    width: 312
-    height: 926
+    width: 416
+    height: 368.8
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 22}
   m_Panes:
-  - {fileID: 21}
+  - {fileID: 22}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &14
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: TestRunnerWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 368.8
+    width: 416
+    height: 354
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 23}
+  m_Panes:
+  - {fileID: 23}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,10 +398,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 406.6667
-    y: 72.66667
-    width: 986
-    height: 613.6667
+    x: 272
+    y: 73.6
+    width: 846
+    height: 375.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -379,10 +429,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -640
-    m_HBaseRangeMax: 640
-    m_VBaseRangeMin: -360
-    m_VBaseRangeMax: 360
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -400,29 +450,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 986
-      height: 592.6667
-    m_Scale: {x: 0.7703125, y: 0.7703125}
-    m_Translation: {x: 493, y: 296.33334}
+      width: 846
+      height: 354.8
+    m_Scale: {x: 0.41064814, y: 0.41064814}
+    m_Translation: {x: 423, y: 177.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -640
-      y: -384.69238
-      width: 1280
-      height: 769.38477
+      x: -1030.079
+      y: -432
+      width: 2060.158
+      height: 864
     m_MinimalGUI: 1
-  m_defaultScale: 0.7703125
-  m_LastWindowPixelSize: {x: 1479, y: 920.5}
+  m_defaultScale: 0.41064814
+  m_LastWindowPixelSize: {x: 1057.5, y: 469.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &15
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,9 +493,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 72.66667
-    width: 405.66666
-    height: 613.6667
+    y: 73.6
+    width: 271
+    height: 375.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -455,23 +505,23 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 12fbffff5663000040640000a464000038650000
+      m_ExpandedIDs: 789effffb49effffeaa1ffffd4a2ffff9ea4ffffd6a4ffff12a5ffff48a8ffff42a9ffffeeadffff64b2ffffa4b3ffffe0b3ffff16b7ffffc4b7ffff3eb8ffff56b8fffffebbffff9ebcffffd6bcffff12bdffff34c0ffff6ac0ffffa8c0ffffe0c2ffff4ac3ffff78c4ffffa6c5ffff44c8ffff94c9ffff9acdffffc2cdffff1ccfffff94cfffff0cd0ffffa6d0ffff50d2ffffb0d2ffff2ad6ffff84d7ffffced9ffff3cdbffffb4dcffffecdeffff04e1ffff5ae2ffffc4e3ffffe4e6ffff5ce8ffff70ecffffecedffff44f0ffff8ef1ffff08f2ffffe8f5ffff30f6ffff90f6ffffe6f6ffff08f9ffff0cf9ffff7cf9fffff4f9ffff0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: PlaceThing
-        m_OriginalName: PlaceThing
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 25264
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 10}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -479,7 +529,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &16
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1622,35 +1672,7 @@ MonoBehaviour:
       data:
         m_SortAscending: 0
         m_SortedColumn: -1
---- !u!114 &17
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238d35a99c7b4b14da156f1c64f9e342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Behaviour Tree
-    m_Image: {fileID: 2800000, guid: 8e319fb1e46299e4bb368bf700097d39, type: 3}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 72.66667
-    width: 564.3333
-    height: 659.6667
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1670,10 +1692,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 198.40001
+    x: 140
     y: 73.6
-    width: 987.6
-    height: 513.4
+    width: 433.2
+    height: 375.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1897,9 +1919,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 566.4181, y: 255.51465, z: -4.0267525}
+    m_Target: {x: -0.5, y: -0.5, z: 0}
     speed: 2
-    m_Value: {x: 566.4181, y: 255.51465, z: -4.0267525}
+    m_Value: {x: -0.5, y: -0.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1950,9 +1972,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 403.38953
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 403.38953
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1977,7 +1999,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1998,9 +2020,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 707.3334
-    width: 835.6667
-    height: 270.3333
+    y: 470.4
+    width: 686.2
+    height: 305
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2018,22 +2040,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Tests/EditMode
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
-  m_StartGridSize: 60
+  m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Scripts
-  m_LastFoldersGridSize: 60
-  m_LastProjectPath: C:\Users\mkami\Desktop\gra - samo genetowanie swiata\ProjektStudia
+  - Assets/Tests/EditMode
+  m_LastFoldersGridSize: 57
+  m_LastProjectPath: C:\Users\jasku\Desktop\Semestr_7\PWO\projekt_pwo\WorldGenerationGame\WorldGenerationGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: ea680000
-    m_LastClickedID: 26858
-    m_ExpandedIDs: 00000000de68000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 487d0000
+    m_LastClickedID: 32072
+    m_ExpandedIDs: 00000000c8640000da640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2049,7 +2071,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 12}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -2061,7 +2083,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de680000
+    m_ExpandedIDs: 00000000c8640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2088,24 +2110,24 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000be6500006c9a000060650000c2660000a86600003e660000c2820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Prefabs
-      m_OriginalName: Prefabs
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 26854
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 12}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -2114,10 +2136,10 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 60
+    m_GridSize: 57
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 138.6
---- !u!114 &20
+  m_DirectoriesAreaWidth: 185
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2137,15 +2159,15 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 836.6667
-    y: 707.3334
-    width: 555.99994
-    height: 270.3333
+    x: 687.2
+    y: 470.4
+    width: 430.8
+    height: 305
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &21
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2165,10 +2187,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1394.6667
-    y: 72.66667
-    width: 311
-    height: 905
+    x: 1120
+    y: 73.6
+    width: 415
+    height: 347.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2176,7 +2198,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 207
+    m_CachedPref: -151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -2186,3 +2208,1511 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+--- !u!114 &23
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1120
+    y: 442.4
+    width: 415
+    height: 333
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 3402
+    splitterInitialOffset: 214.8
+    currentActiveSplitter: -1
+    realSizes:
+    - 144.4
+    - 118.80002
+    relativeSizes:
+    - 0.54863214
+    - 0.45136786
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 263.2
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 23}
+    m_NewResultList:
+    - id: 1004
+      uniqueId: '[ProjektStudia][suite]'
+      name: ProjektStudia
+      fullName: ProjektStudia
+      resultStatus: 1
+      duration: 1.3690453
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1004
+      uniqueId: '[PlayMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/PlayMode.dll][suite]'
+      name: PlayMode.dll
+      fullName: C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/PlayMode.dll
+      resultStatus: 1
+      duration: 1.1999501
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[ProjektStudia][suite]'
+    - id: 1001
+      uniqueId: PlayMode.dll/[PlayMode][NewTestScript][suite]
+      name: NewTestScript
+      fullName: NewTestScript
+      resultStatus: 1
+      duration: 0.0417041
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1004
+      parentUniqueId: '[PlayMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1002
+      uniqueId: PlayMode.dll/NewTestScript/[PlayMode][NewTestScript.NewTestScriptSimplePasses]
+      name: NewTestScriptSimplePasses
+      fullName: NewTestScript.NewTestScriptSimplePasses
+      resultStatus: 1
+      duration: 0.0104887
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][NewTestScript][suite]
+    - id: 1003
+      uniqueId: PlayMode.dll/NewTestScript/[PlayMode][NewTestScript.NewTestScriptWithEnumeratorPasses]
+      name: NewTestScriptWithEnumeratorPasses
+      fullName: NewTestScript.NewTestScriptWithEnumeratorPasses
+      resultStatus: 1
+      duration: 0.0108614
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][NewTestScript][suite]
+    - id: 1004
+      uniqueId: PlayMode.dll/[PlayMode][TilesManagerTests][suite]
+      name: TilesManagerTests
+      fullName: TilesManagerTests
+      resultStatus: 1
+      duration: 1.1459739
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: '[PlayMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1016
+      uniqueId: PlayMode.dll/TilesManagerTests/[PlayMode][TilesManagerTests.TilesManager_CreateTiles]
+      name: TilesManager_CreateTiles
+      fullName: TilesManagerTests.TilesManager_CreateTiles
+      resultStatus: 1
+      duration: 0.0764762
+      messages: 
+      output: 'UnityEngine.Tilemaps.Tile must be instantiated using the ScriptableObject.CreateInstance
+        method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated
+        using the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        You
+        are trying to create a MonoBehaviour using the ''new'' keyword.  This is
+        not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively,
+        your script can inherit from ScriptableObject or no base class at all
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: PlayMode.dll/[PlayMode][TilesManagerTests][suite]
+    - id: 1015
+      uniqueId: PlayMode.dll/TilesManagerTests/[PlayMode][TilesManagerTests.TilesManager_PopulateTileList]
+      name: TilesManager_PopulateTileList
+      fullName: TilesManagerTests.TilesManager_PopulateTileList
+      resultStatus: 1
+      duration: 1.0582348
+      messages: 
+      output: 'UnityEngine.Tilemaps.Tile must be instantiated using the ScriptableObject.CreateInstance
+        method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated
+        using the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+        UnityEngine.Tilemaps.Tile
+        must be instantiated using the ScriptableObject.CreateInstance method instead
+        of new Tile.
+
+        UnityEngine.Tilemaps.Tile must be instantiated using
+        the ScriptableObject.CreateInstance method instead of new Tile.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: PlayMode.dll/[PlayMode][TilesManagerTests][suite]
+    m_ResultText: NewTestScript (0,042s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: b0304239
+      m_LastClickedID: 960639152
+      m_ExpandedIDs: 9c17b58730a6799a7f54b69b6fba85b587e9def2bf08471931677137b03042397f593f51ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 23}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[ProjektStudia][suite]'
+      name: ProjektStudia
+      fullName: ProjektStudia
+      resultStatus: 1
+      duration: 0.1485784
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1004
+      uniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+      name: EditMode.dll
+      fullName: C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll
+      resultStatus: 1
+      duration: 0.1196549
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[ProjektStudia][suite]'
+    - id: 1001
+      uniqueId: EditMode.dll/[EditMode][CameraControllerTests][suite]
+      name: CameraControllerTests
+      fullName: CameraControllerTests
+      resultStatus: 1
+      duration: 0.0364936
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1028
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1005
+      uniqueId: EditMode.dll/CameraControllerTests/[EditMode][CameraControllerTests.ZoomCamera_ScrollDown_ZoomsOut]
+      name: ZoomCamera_ScrollDown_ZoomsOut
+      fullName: CameraControllerTests.ZoomCamera_ScrollDown_ZoomsOut
+      resultStatus: 1
+      duration: 0.016573
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditMode.dll/[EditMode][CameraControllerTests][suite]
+    - id: 1004
+      uniqueId: EditMode.dll/CameraControllerTests/[EditMode][CameraControllerTests.ZoomCamera_ScrollUp_ZoomsIn]
+      name: ZoomCamera_ScrollUp_ZoomsIn
+      fullName: CameraControllerTests.ZoomCamera_ScrollUp_ZoomsIn
+      resultStatus: 1
+      duration: 0.0005812
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditMode.dll/[EditMode][CameraControllerTests][suite]
+    - id: 1002
+      uniqueId: EditMode.dll/CameraControllerTests/[EditMode][CameraControllerTests.ZoomInCamera_IncreasesCameraSize]
+      name: ZoomInCamera_IncreasesCameraSize
+      fullName: CameraControllerTests.ZoomInCamera_IncreasesCameraSize
+      resultStatus: 1
+      duration: 0.0003691
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditMode.dll/[EditMode][CameraControllerTests][suite]
+    - id: 1003
+      uniqueId: EditMode.dll/CameraControllerTests/[EditMode][CameraControllerTests.ZoomOutCamera_DecreasesCameraSize]
+      name: ZoomOutCamera_DecreasesCameraSize
+      fullName: CameraControllerTests.ZoomOutCamera_DecreasesCameraSize
+      resultStatus: 1
+      duration: 0.0004834
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditMode.dll/[EditMode][CameraControllerTests][suite]
+    - id: 1001
+      uniqueId: EditMode.dll/[EditMode][EditModeTest1][suite]
+      name: EditModeTest1
+      fullName: EditModeTest1
+      resultStatus: 1
+      duration: 0.0146669
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1004
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1002
+      uniqueId: EditMode.dll/EditModeTest1/[EditMode][EditModeTest1.EditModeTest1SimplePasses]
+      name: EditModeTest1SimplePasses
+      fullName: EditModeTest1.EditModeTest1SimplePasses
+      resultStatus: 1
+      duration: 0.0063504
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditMode.dll/[EditMode][EditModeTest1][suite]
+    - id: 1003
+      uniqueId: EditMode.dll/[EditMode][FileHandlerTests][suite]
+      name: FileHandlerTests
+      fullName: FileHandlerTests
+      resultStatus: 1
+      duration: 0.017734
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1018
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1005
+      uniqueId: EditMode.dll/FileHandlerTests/[EditMode][FileHandlerTests.SaveAndReadFromJSON_ShouldSaveAndReadObjectCorrectly]
+      name: SaveAndReadFromJSON_ShouldSaveAndReadObjectCorrectly
+      fullName: FileHandlerTests.SaveAndReadFromJSON_ShouldSaveAndReadObjectCorrectly
+      resultStatus: 1
+      duration: 0.0058438
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][FileHandlerTests][suite]
+    - id: 1004
+      uniqueId: EditMode.dll/FileHandlerTests/[EditMode][FileHandlerTests.SaveAndReadListFromJSON_ShouldSaveAndReadListCorrectly]
+      name: SaveAndReadListFromJSON_ShouldSaveAndReadListCorrectly
+      fullName: FileHandlerTests.SaveAndReadListFromJSON_ShouldSaveAndReadListCorrectly
+      resultStatus: 1
+      duration: 0.0068074
+      messages: 
+      output: 'C:/Users/jasku/AppData/LocalLow/DefaultCompany/ProjektStudia/testfile.json
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][FileHandlerTests][suite]
+    - id: 1003
+      uniqueId: EditMode.dll/[EditMode][SeedFromTextTests][suite]
+      name: SeedFromTextTests
+      fullName: SeedFromTextTests
+      resultStatus: 1
+      duration: 0.0143152
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1004
+      uniqueId: EditMode.dll/SeedFromTextTests/[EditMode][SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldGenerateSeedWithinRange]
+      name: SeedFromText_GenerateSeedFromText_ShouldGenerateSeedWithinRange
+      fullName: SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldGenerateSeedWithinRange
+      resultStatus: 1
+      duration: 0.0060327
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][SeedFromTextTests][suite]
+    - id: 1005
+      uniqueId: EditMode.dll/SeedFromTextTests/[EditMode][SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldGenerateUniqueSeeds]
+      name: SeedFromText_GenerateSeedFromText_ShouldGenerateUniqueSeeds
+      fullName: SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldGenerateUniqueSeeds
+      resultStatus: 1
+      duration: 0.0019001
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][SeedFromTextTests][suite]
+    - id: 1006
+      uniqueId: EditMode.dll/SeedFromTextTests/[EditMode][SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldHandleNullOrEmptyInput]
+      name: SeedFromText_GenerateSeedFromText_ShouldHandleNullOrEmptyInput
+      fullName: SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldHandleNullOrEmptyInput
+      resultStatus: 1
+      duration: 0.0001309
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][SeedFromTextTests][suite]
+    - id: 1007
+      uniqueId: EditMode.dll/SeedFromTextTests/[EditMode][SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldProduceDeterministicResults]
+      name: SeedFromText_GenerateSeedFromText_ShouldProduceDeterministicResults
+      fullName: SeedFromTextTests.SeedFromText_GenerateSeedFromText_ShouldProduceDeterministicResults
+      resultStatus: 1
+      duration: 0.000118
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][SeedFromTextTests][suite]
+    - id: 1003
+      uniqueId: EditMode.dll/[EditMode][TilemapBiomesControllerTests][suite]
+      name: TilemapBiomesControllerTests
+      fullName: TilemapBiomesControllerTests
+      resultStatus: 1
+      duration: 0.0074075
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1006
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1004
+      uniqueId: EditMode.dll/TilemapBiomesControllerTests/[EditMode][TilemapBiomesControllerTests.CategorizeIslands_ShouldCategorizeTilesCorrectly]
+      name: CategorizeIslands_ShouldCategorizeTilesCorrectly
+      fullName: TilemapBiomesControllerTests.CategorizeIslands_ShouldCategorizeTilesCorrectly
+      resultStatus: 1
+      duration: 0.0021649
+      messages: 
+      output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
+        This is not allowed.  MonoBehaviours can only be added using AddComponent().
+        Alternatively, your script can inherit from ScriptableObject or no base class
+        at all
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][TilemapBiomesControllerTests][suite]
+    - id: 1005
+      uniqueId: EditMode.dll/TilemapBiomesControllerTests/[EditMode][TilemapBiomesControllerTests.FloodFill_ShouldFillIslandCorrectly]
+      name: FloodFill_ShouldFillIslandCorrectly
+      fullName: TilemapBiomesControllerTests.FloodFill_ShouldFillIslandCorrectly
+      resultStatus: 1
+      duration: 0.0006438
+      messages: 
+      output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
+        This is not allowed.  MonoBehaviours can only be added using AddComponent().
+        Alternatively, your script can inherit from ScriptableObject or no base class
+        at all
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: EditMode.dll/[EditMode][TilemapBiomesControllerTests][suite]
+    - id: 1011
+      uniqueId: EditMode.dll/[EditMode][TilemapResourcesControllerTests][suite]
+      name: TilemapResourcesControllerTests
+      fullName: TilemapResourcesControllerTests
+      resultStatus: 1
+      duration: 0.0175746
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1013
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1012
+      uniqueId: EditMode.dll/TilemapResourcesControllerTests/[EditMode][TilemapResourcesControllerTests.TilemapResourcesController_ClearAllTiles_ShouldRemoveAllTilesAndResetCounts]
+      name: TilemapResourcesController_ClearAllTiles_ShouldRemoveAllTilesAndResetCounts
+      fullName: TilemapResourcesControllerTests.TilemapResourcesController_ClearAllTiles_ShouldRemoveAllTilesAndResetCounts
+      resultStatus: 1
+      duration: 0.0073647
+      messages: 
+      output: 'STAWIAM DRZEWO
+
+        STAWIAM KAMIEN
+
+        STAWIAM DRZEWO
+
+        STAWIAM
+        KAMIEN
+
+        (0, 0, 0)
+
+        TILE NAME: treeTile
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: EditMode.dll/[EditMode][TilemapResourcesControllerTests][suite]
+    - id: 1014
+      uniqueId: EditMode.dll/TilemapResourcesControllerTests/[EditMode][TilemapResourcesControllerTests.TilemapResourcesController_SetTile_ShouldPlaceStoneTile]
+      name: TilemapResourcesController_SetTile_ShouldPlaceStoneTile
+      fullName: TilemapResourcesControllerTests.TilemapResourcesController_SetTile_ShouldPlaceStoneTile
+      resultStatus: 1
+      duration: 0.0009804
+      messages: 
+      output: 'STAWIAM KAMIEN
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: EditMode.dll/[EditMode][TilemapResourcesControllerTests][suite]
+    - id: 1013
+      uniqueId: EditMode.dll/TilemapResourcesControllerTests/[EditMode][TilemapResourcesControllerTests.TilemapResourcesController_SetTile_ShouldPlaceTreeTile]
+      name: TilemapResourcesController_SetTile_ShouldPlaceTreeTile
+      fullName: TilemapResourcesControllerTests.TilemapResourcesController_SetTile_ShouldPlaceTreeTile
+      resultStatus: 1
+      duration: 0.001675
+      messages: 
+      output: 'STAWIAM DRZEWO
+
+        (0, 0, 0)
+
+        TILE NAME: treeTile
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: EditMode.dll/[EditMode][TilemapResourcesControllerTests][suite]
+    - id: 1018
+      uniqueId: EditMode.dll/[EditMode][WorldGenerationConditionsTests][suite]
+      name: WorldGenerationConditionsTests
+      fullName: WorldGenerationConditionsTests
+      resultStatus: 1
+      duration: 0.0084144
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1023
+      parentUniqueId: '[EditMode][C:/Users/jasku/Desktop/Semestr_7/PWO/projekt_pwo/WorldGenerationGame/WorldGenerationGame/Library/ScriptAssemblies/EditMode.dll][suite]'
+    - id: 1020
+      uniqueId: EditMode.dll/WorldGenerationConditionsTests/[EditMode][WorldGenerationConditionsTests.IsGrassBiome_ShouldReturnFalseOutsideRange]
+      name: IsGrassBiome_ShouldReturnFalseOutsideRange
+      fullName: WorldGenerationConditionsTests.IsGrassBiome_ShouldReturnFalseOutsideRange
+      resultStatus: 1
+      duration: 0.0008996
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: EditMode.dll/[EditMode][WorldGenerationConditionsTests][suite]
+    - id: 1019
+      uniqueId: EditMode.dll/WorldGenerationConditionsTests/[EditMode][WorldGenerationConditionsTests.IsGrassBiome_ShouldReturnTrueInRange]
+      name: IsGrassBiome_ShouldReturnTrueInRange
+      fullName: WorldGenerationConditionsTests.IsGrassBiome_ShouldReturnTrueInRange
+      resultStatus: 1
+      duration: 0.0002577
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: EditMode.dll/[EditMode][WorldGenerationConditionsTests][suite]
+    - id: 1022
+      uniqueId: EditMode.dll/WorldGenerationConditionsTests/[EditMode][WorldGenerationConditionsTests.IsSwampBiome_ShouldReturnFalseOutsideRange]
+      name: IsSwampBiome_ShouldReturnFalseOutsideRange
+      fullName: WorldGenerationConditionsTests.IsSwampBiome_ShouldReturnFalseOutsideRange
+      resultStatus: 1
+      duration: 0.0003179
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: EditMode.dll/[EditMode][WorldGenerationConditionsTests][suite]
+    - id: 1021
+      uniqueId: EditMode.dll/WorldGenerationConditionsTests/[EditMode][WorldGenerationConditionsTests.IsSwampBiome_ShouldReturnTrueInRange]
+      name: IsSwampBiome_ShouldReturnTrueInRange
+      fullName: WorldGenerationConditionsTests.IsSwampBiome_ShouldReturnTrueInRange
+      resultStatus: 1
+      duration: 0.0001911
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: EditMode.dll/[EditMode][WorldGenerationConditionsTests][suite]
+    m_ResultText: EditModeTest1SimplePasses (0,006s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 84}
+      m_SelectedIDs: 29e5b9c8
+      m_LastClickedID: -927341271
+      m_ExpandedIDs: f52902acae37a7f1bf084719316771370168757dffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized

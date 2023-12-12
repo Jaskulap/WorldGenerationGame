@@ -722,7 +722,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1779801519}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &158744392
 TilemapRenderer:
@@ -970,6 +970,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &176234142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176234144}
+  - component: {fileID: 176234143}
+  m_Layer: 0
+  m_Name: Swamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &176234143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176234142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e018b6e28a10f442872c9132dcd8504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemapBiomes: {fileID: 158744393}
+  worldGeneration: {fileID: 1779801520}
+  tilemapBiomesController: {fileID: 2049521198}
+  swampBorderTile: {fileID: 11400000, guid: 3b062439e7d283a44a5709d7d4e814bd, type: 2}
+--- !u!4 &176234144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176234142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 566.4181, y: 255.51465, z: -4.0267525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221992089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,8 +1296,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
+      - m_Target: {fileID: 976698890}
+        m_TargetAssemblyTypeName: UIManager, Scripts
         m_MethodName: OnGenerateSlidersValueChanged
         m_Mode: 1
         m_Arguments:
@@ -1456,8 +1504,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
+      - m_Target: {fileID: 976698890}
+        m_TargetAssemblyTypeName: UIManager, Scripts
         m_MethodName: OnSeedInputChange
         m_Mode: 1
         m_Arguments:
@@ -1688,6 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d0297b43f261640ab025ced8021c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSize: 0
   tilemap: {fileID: 715936116}
   treeCount: 0
   stoneCount: 0
@@ -1695,7 +1744,10 @@ MonoBehaviour:
   occupiedResourcesStone: []
   stoneTile: {fileID: 11400000, guid: 6414fbe47663a3443a5dda1e53c52da6, type: 2}
   treeTile: {fileID: 11400000, guid: de824f0cd96b16b408d9b59445cc0803, type: 2}
+  waterStickTile: {fileID: 11400000, guid: bb908bc2758efe249a15868b690b4299, type: 2}
   tilemapBiomesController: {fileID: 2049521198}
+  worldGenerationConditions: {fileID: 1415035493}
+  worldGeneration: {fileID: 1779801520}
 --- !u!4 &479984359
 Transform:
   m_ObjectHideFlags: 0
@@ -1945,7 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomSpeed: 2
   minZoom: 2
-  maxZoom: 200
+  maxZoom: 100
   allowed: 1
 --- !u!1 &562291172
 GameObject:
@@ -2633,7 +2685,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1779801519}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &715936115
 TilemapRenderer:
@@ -3262,6 +3314,11 @@ MonoBehaviour:
   loadPopUp: {fileID: 1624776956}
   contentObject: {fileID: 1320418645}
   buttonPrefab: {fileID: 9011621512689056026, guid: 1785c88d6bb596441980689a1151ace3, type: 3}
+  worldGeneration: {fileID: 1779801520}
+  islandRadiusSlider: {fileID: 1392316270}
+  landformSlider: {fileID: 1995195113}
+  resourceRateSlider: {fileID: 352995578}
+  seedStringInputField: {fileID: 419666075}
 --- !u!4 &976698891
 Transform:
   m_ObjectHideFlags: 0
@@ -4355,8 +4412,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
+      - m_Target: {fileID: 976698890}
+        m_TargetAssemblyTypeName: UIManager, Scripts
         m_MethodName: OnGenerateSlidersValueChanged
         m_Mode: 1
         m_Arguments:
@@ -4367,6 +4424,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1415035492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415035494}
+  - component: {fileID: 1415035493}
+  m_Layer: 0
+  m_Name: WorldGenerationConditions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1415035493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415035492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbdb1f6ed94dda418ffcbf3291aa47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemapBiomesController: {fileID: 2049521198}
+  tilemapBiomes: {fileID: 158744393}
+  tilemapResources: {fileID: 715936116}
+  swampTile: {fileID: 11400000, guid: 37ef8cd9f0a370f4bb8dccc29fe61a1c, type: 2}
+  treeTile: {fileID: 11400000, guid: de824f0cd96b16b408d9b59445cc0803, type: 2}
+  waterStickTile: {fileID: 11400000, guid: bb908bc2758efe249a15868b690b4299, type: 2}
+  stoneTile: {fileID: 11400000, guid: 6414fbe47663a3443a5dda1e53c52da6, type: 2}
+--- !u!4 &1415035494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415035492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 566.9181, y: 256.01465, z: -4.0267525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1779801519}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445944006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,9 +4750,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
+        m_TargetAssemblyTypeName: WorldGeneration, Scripts
         m_MethodName: GenerateWorld
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5426,6 +5534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1415035494}
   - {fileID: 158744391}
   - {fileID: 715936114}
   m_Father: {fileID: 0}
@@ -5447,24 +5556,13 @@ MonoBehaviour:
   tilemapResources: {fileID: 715936116}
   tilemapBiomesController: {fileID: 2049521198}
   tilemapResourcesController: {fileID: 479984358}
-  borderSquare: {fileID: 0}
-  swampTile: {fileID: 11400000, guid: 37ef8cd9f0a370f4bb8dccc29fe61a1c, type: 2}
-  swampBorderTile: {fileID: 11400000, guid: 3b062439e7d283a44a5709d7d4e814bd, type: 2}
-  waterStickTile: {fileID: 11400000, guid: bb908bc2758efe249a15868b690b4299, type: 2}
-  stoneTile: {fileID: 11400000, guid: 6414fbe47663a3443a5dda1e53c52da6, type: 2}
-  treeTile: {fileID: 11400000, guid: de824f0cd96b16b408d9b59445cc0803, type: 2}
-  islandRadiusSlider: {fileID: 1392316270}
-  landformSlider: {fileID: 1995195113}
-  resourceRateSlider: {fileID: 352995578}
-  seedStringInputField: {fileID: 419666075}
-  mapWidth: 100
-  islandRadius: 50
+  swamp: {fileID: 176234143}
   seed: 0
   biomeList: []
   biomeWrappedList:
     floatList: []
   tileManager: {fileID: 2131164251}
-  uiManager: {fileID: 0}
+  uiManager: {fileID: 976698890}
 --- !u!1 &1804138761
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,22 +6528,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
+      - m_Target: {fileID: 976698890}
+        m_TargetAssemblyTypeName: UIManager, Scripts
         m_MethodName: OnGenerateSlidersValueChanged
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1779801520}
-        m_TargetAssemblyTypeName: WorldGeneration, Assembly-CSharp
-        m_MethodName: GenerateWorld
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6483,9 +6569,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6274d36e9a3fe4b449829a19a8c89143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkableChars: 6700730062004200
   gridSize: 0
+  tilemap: {fileID: 158744393}
+  walkableChars: 6700730062004200
   categorized: 0
+  tileManager: {fileID: 2131164251}
+  worldGenerationConditions: {fileID: 1415035493}
+  worldGeneration: {fileID: 1779801520}
 --- !u!4 &2049521199
 Transform:
   m_ObjectHideFlags: 0
@@ -6744,13 +6834,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b75526d33772f4287d5aacaf22fac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWaterTile: {fileID: 11400000, guid: c9e37c618476d914195dc9edd38de317, type: 2}
-  baseSandTile: {fileID: 11400000, guid: b1ca8c2b7de4205409b2d9c3c9694096, type: 2}
-  baseGrassTile: {fileID: 11400000, guid: 9df27e7dfc126384780af8708c38c82e, type: 2}
-  baseMountainTile: {fileID: 11400000, guid: ea5619020d9cce84f8cbc697abcd6ec8, type: 2}
-  baseSnowTile: {fileID: 11400000, guid: 59acfb986e7c5aa49850c942068be864, type: 2}
-  baseSwampTile: {fileID: 11400000, guid: 37ef8cd9f0a370f4bb8dccc29fe61a1c, type: 2}
-  baseSwampBorderTile: {fileID: 11400000, guid: 3b062439e7d283a44a5709d7d4e814bd, type: 2}
+  baseWaterTile: {fileID: 0}
+  baseSandTile: {fileID: 0}
+  baseGrassTile: {fileID: 0}
+  baseMountainTile: {fileID: 0}
+  baseSnowTile: {fileID: 0}
+  baseSwampTile: {fileID: 0}
+  baseSwampBorderTile: {fileID: 0}
 --- !u!4 &2131164252
 Transform:
   m_ObjectHideFlags: 0

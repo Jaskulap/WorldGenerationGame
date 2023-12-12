@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 using Application = UnityEngine.Application;
 using Debug = UnityEngine.Debug;
 
+// Handles saving and loading game data including tilemap information.
 public class SaveHandler : MonoBehaviour
 {
     public Tilemap tilemapBiomes;
@@ -17,26 +18,35 @@ public class SaveHandler : MonoBehaviour
     public TilemapResourcesController tilemapResourcesController;
     public UIManager uiManager;
     public TMP_InputField filenameInput;
-   
+
     public TilesManager tileManager;
 
+    // Dictionary to store references to different tilemaps in the scene.
     Dictionary<string, Tilemap> tilemaps = new Dictionary<string, Tilemap>();
     [SerializeField] BoundsInt bounds;
 
     public string filename;
+
+    // Initialization method called when the script is first loaded.
     private void Start()
     {
         InitTilemaps();
     }
+
+    // Event handler for world selection.
     public void OnWorldPick(string filename)
     {
         Debug.Log("OnWorldPick");
         this.filename = filename;
     }
+
+    // Event handler for filename input change.
     public void OnFilenameChange()
     {
         filename = filenameInput.text;
     }
+
+    // Initializes the dictionary with references to different tilemaps in the scene.
     private void InitTilemaps()
     {
         int index = 0;
@@ -44,10 +54,11 @@ public class SaveHandler : MonoBehaviour
         foreach (var map in maps)
         {
             index++;
-            tilemaps.Add(map.name, map); //map.name {Tilemap Biomes, Tilemap Resources, Tilemap Buildings}
+            tilemaps.Add(map.name, map);
         }
     }
 
+    // Saves the current state of the game.
     public void onSave()
     {
         //Debug.Log("SAVE TRY!");
@@ -75,6 +86,7 @@ public class SaveHandler : MonoBehaviour
             }
             data.Add(mapData);
         }
+
         string folderPath = Application.persistentDataPath;
         Directory.CreateDirectory(folderPath + "/" + filename);
         FileHandler.SaveToJSON<TilemapData>(data, filename + "/" + filename + "TilemapData.json");
@@ -85,15 +97,36 @@ public class SaveHandler : MonoBehaviour
         uiManager.CloseAllPopUp();
     }
 
+    // Loads a previously saved game state.
     public void onLoad()
     {
         Stopwatch stopwatch = new Stopwatch();
 
-        // Rozpoczęcie pomiaru czasu
+        // Start measuring time
         stopwatch.Start();
 
-        List<TilemapData> data = FileHandler.ReadListFromJSON<TilemapData>(filename + "/" + filename + "TilemapData.json");
-        List<float> biomeData = FileHandler.ReadListFromJSON<float>(filename + "/" + filename + "BiomeData.json");
+        List<TilemapData> data;
+        List<float> biomeData;
+        try
+        {
+            data = FileHandler.ReadListFromJSON<TilemapData>(filename + "/" + filename + "TilemapData.json");
+            biomeData = FileHandler.ReadListFromJSON<float>(filename + "/" + filename + "BiomeData.json");
+
+            // Rest of your code for handling the loaded data
+        }
+        catch (FileNotFoundException ex)
+        {
+            Debug.LogError($"File not found: {ex.FileName}");
+            return;
+            // Handle the case where the file is not found (e.g., inform the user, log, etc.)
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"An error occurred: {ex.Message}");
+            return;
+            // Handle other exceptions (e.g., file format issues, unexpected errors, etc.)
+        }
+
         worldGeneration.biomeWrappedList = new FloatListWrapper(biomeData);
         worldGeneration.biomeList = biomeData;
         worldGeneration.MapWidth = (int)Mathf.Sqrt(biomeData.Count);
@@ -103,7 +136,7 @@ public class SaveHandler : MonoBehaviour
         {
             if (!tilemaps.ContainsKey(mapData.key))
             {
-                Debug.LogError("Cos jeblo!");
+                Debug.LogError("Something went wrong!");
                 continue;
             }
             var map = tilemaps[mapData.key];
@@ -129,27 +162,28 @@ public class SaveHandler : MonoBehaviour
                         map.SetTile(tile.position, tile.tile);
                     }
                 }
-
             }
         }
         stopwatch.Stop();
         long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
 
-        Debug.Log("Czas Load: " + elapsedMilliseconds + " ms");
+        Debug.Log("Load Time: " + elapsedMilliseconds + " ms");
 
         tilemapResourcesController.Initialize();
         tilemapBiomesController.Initialize();
         uiManager.CloseAllPopUp();
     }
-
 }
 
+// Serializable class to hold tilemap data.
 [Serializable]
 public class TilemapData
 {
     public string key;
     public List<TileInfo> tiles = new List<TileInfo>();
 }
+
+// Serializable class to hold information about a tile.
 [Serializable]
 public class TileInfo
 {

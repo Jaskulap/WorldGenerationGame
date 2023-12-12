@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -5,27 +6,41 @@ using Random = System.Random;
 
 public class WorldGeneration : MonoBehaviour
 {
+    // Tilemaps for biomes and resources
     public Tilemap tilemapBiomes;
     public Tilemap tilemapResources;
+
+    // Controllers for tilemaps
     public TilemapBiomesController tilemapBiomesController;
     public TilemapResourcesController tilemapResourcesController;
+
+    // List of controllers for tilemaps
+    private List<BaseTilemapController> tilemapControllers = new List<BaseTilemapController>();
+
+    // Swamp object to generate swamp borders
     [SerializeField]
-    private Swamp swamp;
-    public Tile swampTile;
-    public Tile waterStickTile;
-    public Tile stoneTile;
-    public Tile treeTile;
+    public Swamp swamp;
+    // Generation parameters
     private float landformScale = 1;
     private float resourceRate = 1;//0.66 - 1.5
+
+    // Seed for random generation
     private string seedString = "";
+    public int seed = 0;
+
+    //World parameters
     private int mapWidth = 100;
     private int islandRadius = 40;
-    public int seed = 0;
     private Vector2Int islandCenter;
     private float noiseScale = 19f;
+
+    //Lists for storing generated data
     public List<float> biomeList = new List<float>();
     public FloatListWrapper biomeWrappedList;
+
     Random random = new Random();
+
+    //Managers for tiles and UI
     public TilesManager tileManager;
     public UIManager uiManager;
 
@@ -35,17 +50,39 @@ public class WorldGeneration : MonoBehaviour
     public float LandformScale { get => landformScale; set => landformScale = value; }
     public float ResourceRate { get => resourceRate; set => resourceRate = value; }
     private void Start()
-    {
-        GenerateWorld();
+    {    // Add tilemap controllers to the list
+        try
+        {
+            if (tilemapBiomesController == null)
+            {
+                throw new NullReferenceException("TilemapBiomesController not found.");
+            }
+
+            if (tilemapResourcesController == null)
+            {
+                throw new NullReferenceException("TilemapResourcesController not found.");
+            }
+
+            tilemapControllers.Add(tilemapBiomesController);
+            tilemapControllers.Add(tilemapResourcesController);
+
+            GenerateWorld();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error in Start: " + e.Message);
+        }
     }
+    // Clear all tiles and data in the world
     public void ClearWorld()
     {
-        tilemapBiomes.ClearAllTiles();
-        tilemapResources.ClearAllTiles();
+        tilemapControllers.ForEach(controller => controller.ClearAllTiles());
         biomeList.Clear();
         tilemapBiomesController.tilemapChars = new char[MapWidth, MapWidth];
         GenerateEmptyWorld();
     }
+
+    // Generate an empty world with water biomes
     public void GenerateEmptyWorld()
     {
         EarlyGWInitialization();
@@ -60,6 +97,8 @@ public class WorldGeneration : MonoBehaviour
         }
         LateGWInitialization();
     }
+
+    // Generate the world with various biomes and resources
     public void GenerateWorld()
     {
         EarlyGWInitialization();
@@ -68,59 +107,48 @@ public class WorldGeneration : MonoBehaviour
         {
             for (int y = 0; y < MapWidth; y++)
             {
-                Vector3Int cellPosition = new Vector3Int(x, y, 0);
-                Vector2Int positionFromCenter = new Vector2Int(x - islandCenter.x, y - islandCenter.y);
-                float distanceToCenter = positionFromCenter.magnitude;
+                Vector3Int cellPosition;
+                float swampNoise, treeNoise, biome;
 
-                float noiseValue1 = Mathf.PerlinNoise((float)(x + seed) / noiseScale, (float)(y + seed) / noiseScale);
-                float noiseValue2 = Mathf.PerlinNoise((float)(x + 2 * seed) / (3 * noiseScale), (float)(y + 2 * seed) / (3 * noiseScale));
-                float noiseValue = (2 * noiseValue1 * LandformScale + noiseValue2) / 3;
-                float distortedRadius = IslandRadius * (1 + (noiseValue - 0.5f) * 0.5f);
+                // Calculate noises and cell position
+                CalculateNoises(x, y, out cellPosition, out swampNoise, out treeNoise, out biome);
 
-                float swampNoiseValue = Mathf.PerlinNoise((float)(x + 200 + seed) / (noiseScale * 3 / 2), (float)(y + 200 + seed) / (noiseScale * 3 / 2));
-                float treeNoiseValue = Mathf.PerlinNoise((float)(x + 100 + seed) / (2 * noiseScale), (float)(y + 100 + seed) / (2 * noiseScale));
-
-                float swampNoise = swampNoiseValue - swampNoiseValue * (distanceToCenter * 0.3f / distortedRadius);
-                float treeNoise = Mathf.Pow(treeNoiseValue - 0.08f, 3) * ResourceRate;
-
-                float biome = noiseValue - noiseValue * Mathf.Pow((distanceToCenter / distortedRadius), (float)(1.2f));
-                biome = Mathf.Clamp01(biome);
                 if (biome > 0.1f)
                 {
                     biome = biome * LandformScale;
                 }
+
                 biomeList.Add(biome);
-
-                int indexTile = Mathf.Clamp((int)(biome * 100), 0, 100);
-                tilemapBiomesController.tilemapChars[x, y] = tileManager.tileList[indexTile].biome;
-                tilemapBiomes.SetTile(cellPosition, tileManager.tileList[indexTile].tile);
-
-                if (biome > 0.2f && biome < 0.50f)//trawa
+                // Use controllers to generate tiles and resources
+                foreach (BaseTilemapController controller in tilemapControllers)
                 {
-                    if (biome > 0.25 && biome < 0.40 && swampNoise > 0.62)
-                    {
-                        tilemapBiomesController.tilemapChars[x, y] = BiomeType.SWAMP;
-                        tilemapBiomes.SetTile(cellPosition, swampTile);
-                    }
-                    if (UnityEngine.Random.value <= treeNoise)
-                    {
-                        if (tilemapBiomes.GetTile(cellPosition).name != "swampTile")
-                        {
-                            tilemapResources.SetTile(cellPosition, treeTile);
-                        }
-                        else
-                        {
-                            tilemapResources.SetTile(cellPosition, waterStickTile);
-                        }
-                    }
-                    if (biome >= 0.49 && biome < 0.50 && UnityEngine.Random.value <= 0.50f * (ResourceRate * 0.9))
-                    {
-                        tilemapResources.SetTile(cellPosition, stoneTile);
-                    }
+                    controller.SetGeneratedTile(biome, swampNoise, treeNoise, cellPosition);
                 }
             }
         }
         LateGWInitialization();
+    }
+
+    // Calculate noises and cell position based on coordinates
+    private void CalculateNoises(int x, int y, out Vector3Int cellPosition, out float swampNoise, out float treeNoise, out float biome)
+    {
+        cellPosition = new Vector3Int(x, y, 0);
+        Vector2Int positionFromCenter = new Vector2Int(x - islandCenter.x, y - islandCenter.y);
+        float distanceToCenter = positionFromCenter.magnitude;
+
+        float noiseValue1 = Mathf.PerlinNoise((float)(x + seed) / noiseScale, (float)(y + seed) / noiseScale);
+        float noiseValue2 = Mathf.PerlinNoise((float)(x + 2 * seed) / (3 * noiseScale), (float)(y + 2 * seed) / (3 * noiseScale));
+        float noiseValue = (2 * noiseValue1 * LandformScale + noiseValue2) / 3;
+
+        float swampNoiseValue = Mathf.PerlinNoise((float)(x + 200 + seed) / (noiseScale * 3 / 2), (float)(y + 200 + seed) / (noiseScale * 3 / 2));
+        float treeNoiseValue = Mathf.PerlinNoise((float)(x + 100 + seed) / (2 * noiseScale), (float)(y + 100 + seed) / (2 * noiseScale));
+
+        float distortedRadius = IslandRadius * (1 + (noiseValue - 0.5f) * 0.5f);
+
+        swampNoise = swampNoiseValue - swampNoiseValue * (distanceToCenter * 0.3f / distortedRadius);
+        treeNoise = Mathf.Pow(treeNoiseValue - 0.08f, 3) * ResourceRate;
+        biome = noiseValue - noiseValue * Mathf.Pow((distanceToCenter / distortedRadius), (float)(1.2f));
+        biome = Mathf.Clamp01(biome);
     }
 
     private void LateGWInitialization()
@@ -144,8 +172,7 @@ public class WorldGeneration : MonoBehaviour
             seed = SeedFromText.GenerateSeedFromText(SeedString);
         }
         biomeList.Clear();
-        tilemapBiomes.ClearAllTiles();
-        tilemapResources.ClearAllTiles();
+        tilemapControllers.ForEach(controller => controller.ClearAllTiles());
         MapWidth = (int)(IslandRadius * 2.5);
         tilemapBiomesController.tilemapChars = new char[MapWidth, MapWidth];
         islandCenter = new Vector2Int(MapWidth / 2, MapWidth / 2);
@@ -156,4 +183,3 @@ public class WorldGeneration : MonoBehaviour
     public Swamp GetSwamp() { return swamp; }
 
 }
-
