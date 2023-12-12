@@ -1,24 +1,104 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TilemapBiomesController : MonoBehaviour
+public class TilemapBiomesController : BaseTilemapController
 {
-    public char[,] tilemapChars;
-    public char[] walkableChars;
-    public int gridSize;
+    public Tilemap tilemap;
+
+    public char[] walkableChars = { 'g', 's', 'b', 'B' };
+
     public int[,] tilemapIslandNumber;
     public int[,] movementCosts;
 
-    private int categorizeCounter = 0;
     public bool categorized = false;
 
+    public TilesManager tileManager;
+    public WorldGenerationConditions worldGenerationConditions;
+    public WorldGeneration worldGeneration;
+
+    // Override method to set generated tiles based on biome and conditions
+    public override void SetGeneratedTile(float biome, float swampNoise, float treeNoise, Vector3Int position)
+    {
+        int x = position.x;
+        int y = position.y;
+        int indexTile = Mathf.Clamp((int)(biome * 100), 0, 100);
+        tilemapChars[x, y] = tileManager.tileList[indexTile].biome;
+        tilemap.SetTile(position, tileManager.tileList[indexTile].tile);
+
+        if (worldGenerationConditions.IsGrassBiome(biome))
+        {
+            if (worldGenerationConditions.IsSwampBiome(biome, swampNoise))
+            {
+                worldGenerationConditions.SetSwampTile(x, y, position);
+            }
+        }
+    }
+
+    // Override method to delete a tile at specified coordinates
+    // Override method to delete a tile at specified coordinates
+    public override void DeleteTile(Vector3 cords)
+    {
+        try
+        {
+            int x = Mathf.RoundToInt(cords.x);
+            int y = Mathf.RoundToInt(cords.y);
+
+            if (!IsCellInBorders(new Vector3Int(x, y, 0)))
+            {
+                throw new ArgumentException("Invalid position.");
+            }
+
+            tilemapChars[x, y] = BiomeType.WATER;
+            tilemap.SetTile(new Vector3Int(x, y, 0), tileManager.tileList[0].tile);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError("Error deleting tile: " + e.Message);
+        }
+    }
+
+    public override void ClearAllTiles()
+    {
+
+        tilemapChars = new char[gridSize, gridSize];
+        tilemap.ClearAllTiles();
+
+    }
+
+    // Override method to get the biome type at specified coordinates
+    public override char GetTileOnCords(Vector3 cellPosition)
+    {
+        try
+        {
+            int x = Mathf.RoundToInt(cellPosition.x);
+            int y = Mathf.RoundToInt(cellPosition.y);
+
+            Vector3Int cell = new Vector3Int(x, y, 0);
+
+            // Check if cell is within valid range
+            if (IsCellInBorders(cell))
+            {
+                throw new ArgumentException("Invalid cell position.");
+            }
+
+            x = Mathf.Clamp(x, 0, tilemapChars.GetLength(0) - 1);
+            y = Mathf.Clamp(y, 0, tilemapChars.GetLength(1) - 1);
+
+            return tilemapChars[x, y];
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError("Error getting tile at coordinates: " + e.Message);
+            return BiomeType.WATER; // Or another default value as needed
+        }
+    }
+
+    // Set island number for every tile on the map.
     public void CategorizeIslands()
     {
+        // Initialize island numbers to zero.
         for (int x = 0; x < gridSize; x++)
         {
             for (int y = 0; y < gridSize; y++)
@@ -28,6 +108,7 @@ public class TilemapBiomesController : MonoBehaviour
         }
 
         int index = 1;
+        // Iterate through the grid to find unprocessed land tiles and start flood fill.
         for (int x = 0; x < gridSize; x++)
         {
             for (int y = 0; y < gridSize; y++)
@@ -39,17 +120,51 @@ public class TilemapBiomesController : MonoBehaviour
                 }
             }
         }
+
         categorized = true;
 
+        // Update movement costs based on categorized islands.
         UpdateMovementCosts();
+    }
+    // Implements flood-fill algorithm to identify and mark independent island regions
+    public void FloodFill(int startX, int startY, int index)
+    {
 
+        Queue<Vector2Int> queue = new Queue<Vector2Int>();
+        queue.Enqueue(new Vector2Int(startX, startY));
+
+
+        while (queue.Count > 0)
+        {
+            Vector2Int position = queue.Dequeue();
+            int x = position.x;
+            int y = position.y;
+
+            // Skip if the position is out of bounds or if it's water, mountain, or already categorized.
+            if (x < 0 || x >= gridSize || y < 0 || y >= gridSize ||
+                tilemapChars[x, y] == BiomeType.WATER || tilemapChars[x, y] == BiomeType.MOUNTAIN || tilemapIslandNumber[x, y] != 0)
+            {
+                continue;
+            }
+
+            // Set the island number for the current position.
+            tilemapIslandNumber[x, y] = index;
+
+            // Enqueue adjacent positions for further exploration.
+            queue.Enqueue(new Vector2Int(x + 1, y)); // Right
+            queue.Enqueue(new Vector2Int(x - 1, y)); // Left
+            queue.Enqueue(new Vector2Int(x, y + 1)); // Up
+            queue.Enqueue(new Vector2Int(x, y - 1)); // Down
+        }
     }
 
     public void Initialize()
     {
+        // Initialize grid size and island number array.
         gridSize = tilemapChars.GetLength(0);
         tilemapIslandNumber = new int[gridSize, gridSize];
     }
+
 
     public void UpdateMovementCosts()
     {
@@ -72,35 +187,7 @@ public class TilemapBiomesController : MonoBehaviour
         }
     }
 
-    public void FloodFill(int startX, int startY, int index)
-    {
-        Queue<Vector2Int> queue = new Queue<Vector2Int>();
-        queue.Enqueue(new Vector2Int(startX, startY));
 
-        while (queue.Count > 0)
-        {
-            Vector2Int position = queue.Dequeue();
-            int x = position.x;
-            int y = position.y;
-
-            if (x < 0 || x >= gridSize || y < 0 || y >= gridSize)
-            {
-                continue; // jesli pozycja jest poza granicami
-            }
-            if (tilemapChars[x, y] == BiomeType.WATER || tilemapChars[x, y] == BiomeType.MOUNTAIN || tilemapIslandNumber[x, y] != 0)
-            {
-                continue;
-            }
-
-            tilemapIslandNumber[x, y] = index;
-
-            // kolejkowanie sledzenia pola
-            queue.Enqueue(new Vector2Int(x + 1, y)); // Prawo
-            queue.Enqueue(new Vector2Int(x - 1, y)); // Lewo
-            queue.Enqueue(new Vector2Int(x, y + 1)); // G�ra
-            queue.Enqueue(new Vector2Int(x, y - 1)); // D�
-        }
-    }
 
     public int GetIslandNrOnCords(Vector3 cellPosition)
     {
@@ -109,28 +196,11 @@ public class TilemapBiomesController : MonoBehaviour
         return tilemapIslandNumber[x, y];
     }
 
-    public bool CompareIslands(Vector3 cords1, Vector3 cords2)
+    public bool IsSameIsland(Vector3 cords1, Vector3 cords2)
     {
         return GetIslandNrOnCords(cords1) == GetIslandNrOnCords(cords2);
     }
 
-    private void Update() // ???????? co to robi
-    {
-        if (categorized)
-        {
-            categorizeCounter++;
-            if (categorizeCounter >= 10)
-            {
-                categorized = false;
-                categorizeCounter = 0;
-            }
-        }
-    }
-
-    public char GetTileOnCords(Vector3Int cellPosition)
-    {
-        return (tilemapChars[cellPosition.x, cellPosition.y]);
-    }
 
     public bool IsTileWalkable(char tile)
     {
@@ -163,12 +233,11 @@ public class TilemapBiomesController : MonoBehaviour
         return int.MaxValue;
     }
 
-    public float GetSpeedModifierOnTile(char tile) 
+    public float GetSpeedModifierOnTile(char tile)
     {
         if (tile == BiomeType.GRASS) return 1f;
         if (tile == BiomeType.SAND) return 0.5f;
         if (tile == BiomeType.SWAMP || tile == BiomeType.SWAMP_BORDER) return 0.2f;
         return 1f;
     }
-
 }
